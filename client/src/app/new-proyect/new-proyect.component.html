@@ -1,0 +1,14 @@
+<p>
+  new-proyect works!
+</p>
+<h2>New Proyect</h2>
+<form (ngSubmit)="newProyect(myForm)" #myForm="ngForm" method="post">
+  <label> Tittle </label>
+  <input type="text" [(ngModel)]="title" name="title"/>
+  <label> Content </label>
+  <textarea type="text" [(ngModel)]="content" name="content"></textarea>
+  <label> Image </label>
+  <input type="text" [(ngModel)]="imageUrl" name="imageUrl"/>
+
+  <button type="submit"> Send Thread </button>
+</form>

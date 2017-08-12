@@ -2,13 +2,20 @@
   new-proyect works!
 </p>
 <h2>New Proyect</h2>
-<form (ngSubmit)="newProyect(myForm)" #myForm="ngForm" method="post">
-  <label> Tittle </label>
-  <input type="text" [(ngModel)]="title" name="title"/>
-  <label> Content </label>
-  <textarea type="text" [(ngModel)]="content" name="content"></textarea>
-  <label> Image </label>
-  <input type="text" [(ngModel)]="imageUrl" name="imageUrl"/>
+<form>
+  <fieldset>
 
-  <button type="submit"> Send Thread </button>
-</form>
+      <label> tittle </label>
+      <input type="text" [(ngModel)]="newProyecto.title" name="title"/>
+      <label> content </label>
+      <textarea type="text" [(ngModel)]="newProyecto.content" name="content"></textarea>
+      <label> Image </label>
+
+      <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+    </fieldset>
+      <button (click)="submit()"> submit </button>
+  </form>
+
+
+
+<p> {{ feedback }} </p>

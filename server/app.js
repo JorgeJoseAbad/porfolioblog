@@ -48,6 +48,7 @@ configure(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.locals.title = 'Express - server portfolioblog';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

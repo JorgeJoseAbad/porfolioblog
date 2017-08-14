@@ -14,7 +14,7 @@ export class NewProyectComponent implements OnInit {
 
   uploader: FileUploader = new FileUploader({
     url: `http://localhost:3000/api/proyects/`
-    //url: `/phones/`
+    
   });
 
   newProyecto = {
@@ -45,23 +45,22 @@ export class NewProyectComponent implements OnInit {
         form.append('content', this.newProyecto.content);
         console.log(this.newProyecto);
 
-
       };
-
-
       this.uploader.uploadAll();
       console.log(this.newProyecto);
-      /*console.log("segunda parte?");
-      this.portfolioservice.addNew(this.newProyecto)
-        .subscribe(
-          (thread) => {
-            console.log(thread);
-            console.log(thread._id);
-            this.router.navigate([''])
-          },
-          (err) => this.error = err
-        );
-*/
-}
+
+    }
 
 }
+
+/*console.log("segunda parte?");
+this.portfolioservice.addNew(this.newProyecto)
+  .subscribe(
+    (thread) => {
+      console.log(thread);
+      console.log(thread._id);
+      this.router.navigate([''])
+    },
+    (err) => this.error = err
+  );
+*/

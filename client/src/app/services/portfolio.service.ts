@@ -6,7 +6,7 @@ import {environment} from '../../environments/environment';
 
 @Injectable()
 export class PortfolioService {
-  BASE_URL: String=environment.baseURL;
+  BASE_URL: string = `${environment.baseURL}`;
   options: Object = {withCredentials:true};
 
   constructor(private http: Http) { }

@@ -28,7 +28,7 @@ router.post('/', loggedIn, upload.single('file'), (req, res, next) => {
   const newProyect = new Proyect({
     _author: req.user._id,
     title: req.body.title,
-    imageUrl: `/uploads/${req.file.filename}`, // modified to upload image
+    imageUrl: `uploads/${req.file.filename}`, // modified to upload image
     content: req.body.content,
     date: req.body.date
   });

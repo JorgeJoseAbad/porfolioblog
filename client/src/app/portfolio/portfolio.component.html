@@ -3,8 +3,12 @@
 </p>
 <h3>Push button to see a list of proyects</h3>
 <button (click)="getListProyects()">GetPorfolio</button>
-<div *ngFor="let proyect of proyects">
-  {{proyect.title}}
+<div class="proyectlist" *ngFor="let proyect of proyects">
+  <h4>{{proyect.title}}&nbsp;</h4>
+  {{proyect.content}}
+  {{proyect._author.username}}
+  {{proyect.imageUrl}}
+  <img [src]="proyect.imageUrl" />
 </div>
 <h3>Push link to add a new proyect</h3>
 <a [routerLink]="['../new-proyect']"> New Proyect </a>

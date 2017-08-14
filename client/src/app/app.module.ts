@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 import { Routes } from '@angular/router';
-import { FileSelectDirective } from "ng2-file-upload";
+import { FileUploadModule,FileDropDirective,FileSelectDirective } from "ng2-file-upload";
 
 import { PortfolioService} from './services/portfolio.service';
 import { SessionsService} from './services/sessions.service';
@@ -41,12 +41,13 @@ export const routes: Routes = [
     SignupComponent,
     LoginComponent,
     NewProyectComponent,
-    FileSelectDirective
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    FileUploadModule,
     RouterModule.forRoot(routes)
   ],
   providers: [PortfolioService,SessionsService],

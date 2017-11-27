@@ -18,7 +18,11 @@ const users =         require('./routes/users');
 
 mongoose.Promise=global.Promise;
 
-mongoose.connect('mongodb://localhost/portfolio');
+var options = {
+  useMongoClient: true,
+};
+
+mongoose.connect('mongodb://localhost/portfolio',options);
 
 const app = express();
 

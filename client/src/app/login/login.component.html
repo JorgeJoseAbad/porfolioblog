@@ -3,12 +3,22 @@
 </p>
 <h3>is login component</h3>
 <h1> Login</h1>
-<form (ngSubmit)="login(myForm)" #myForm="ngForm">
-  <label> Username </label>
-  <input type="text" [(ngModel)]="username" name="username"/>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="password" name="password"/>
 
-  <button type="submit"> login </button>
+<form class="myform"(ngSubmit)="login(myForm)" #myForm="ngForm">
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="Username" [(ngModel)]="username" name="username"/>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password" name="password"/>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Log in</button>
+
 </form>
+
+
 <p class="error"> {{ error }} </p>

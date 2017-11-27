@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 import { Routes } from '@angular/router';
 import { FileUploadModule,FileDropDirective,FileSelectDirective } from "ng2-file-upload";
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import { PortfolioService} from './services/portfolio.service';
 import { SessionsService} from './services/sessions.service';
@@ -17,6 +19,7 @@ import { BlogComponent} from './blog/blog.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { NewProyectComponent } from './new-proyect/new-proyect.component';
+
 
 
 
@@ -48,6 +51,7 @@ export const routes: Routes = [
     FormsModule,
     HttpModule,
     FileUploadModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [PortfolioService,SessionsService],

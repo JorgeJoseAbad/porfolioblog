@@ -1,6 +1,7 @@
-<p>
-  portfolio works!
-</p>
+<h1>
+  Portfolio!
+</h1>
+
 <h3>Push button to see a list of proyects</h3>
 <button (click)="getListProyects()">GetPorfolio</button>
 <div class="proyectlist" *ngFor="let proyect of proyects">
@@ -10,5 +11,5 @@
   {{proyect.imageUrl}}
   <img [src]="proyect.imageUrl" />
 </div>
-<h3>Push link to add a new proyect</h3>
-<a [routerLink]="['../new-proyect']"> New Proyect </a>
+<h3>Push button add a new proyect</h3>
+<button [routerLink]="['../new-proyect']"> New Proyect </button>

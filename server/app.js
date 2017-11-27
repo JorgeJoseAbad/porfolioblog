@@ -29,7 +29,7 @@ const app = express();
 console.log("en app.js");
 
 var whitelist = [
-    'http://localhost:4200',
+    'https://localhost:4200',
 ];
 var corsOptions = {
     origin: function(origin, callback){

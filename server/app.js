@@ -1,20 +1,19 @@
-const express =       require('express');
-const path =          require('path');
-const favicon =       require('serve-favicon');
-const logger =        require('morgan');
-const cookieParser =  require('cookie-parser');
-const bodyParser =    require('body-parser');
-const layouts =       require('express-ejs-layouts');
-const mongoose =      require('mongoose');
-const session =       require('express-session');
-const MongoStore =    require('connect-mongo')(session);
-const passport =      require('passport');
-const configure =     require('./config/passport.js');
-const cors =          require('cors');
+const express       =  require('express');
+const path          =  require('path');
+const favicon       =  require('serve-favicon');
+const logger        =  require('morgan');
+const cookieParser  =  require('cookie-parser');
+const bodyParser    =  require('body-parser');
+const layouts       =  require('express-ejs-layouts');
+const mongoose      =  require('mongoose');
+const session       =  require('express-session');
+const MongoStore    =  require('connect-mongo')(session);
+const passport      =  require('passport');
+const configure     =  require('./config/passport.js');
+const cors          =  require('cors');
 
-
-const index =         require('./routes/index');
-const users =         require('./routes/users');
+const index         =  require('./routes/index');
+const users         =  require('./routes/users');
 
 mongoose.Promise=global.Promise;
 
@@ -29,7 +28,7 @@ const app = express();
 console.log("en app.js");
 
 var whitelist = [
-    'https://localhost:4200',
+    'http://localhost:4200',
 ];
 var corsOptions = {
     origin: function(origin, callback){

@@ -40,6 +40,12 @@ router.post('/', loggedIn, upload.single('file'), (req, res, next) => {
   });
 });
 
+//experimental route to send HTML from back to front end.
+router.get('/proyect',(req,res,next)=>{
+  console.log("en proyecto1 otra vez"); //OK
+  res.render('proyects/proyect1.ejs'); //Ok, send Response to front.
+});
+
 module.exports = router;
 
 /*

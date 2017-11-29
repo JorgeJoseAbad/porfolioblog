@@ -47,8 +47,8 @@ export class PortfolioComponent implements OnInit {
     };
 
 //experimental function to bring a html page defined in back-end to front-end
-  getTemplate(){
-      this.portfolioservice.getTemplate()
+  getTemplate(proyect){
+      this.portfolioservice.getTemplate(proyect)
       .subscribe((response)=>{
         console.log(response); //object Response with headers, ok:true, status:200, url.., _body..
         console.log(response);

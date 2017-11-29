@@ -27,9 +27,10 @@ export class PortfolioService {
         .map((res) => res.json());
     }
 
-  getTemplate(){
+  getTemplate(proyecto){
+    console.log(proyecto); //
     return this.http
-    .get(`${this.BASE_URL}/api/proyects/proyect`);
+    .get(`${this.BASE_URL}/api/proyects/proyect/${proyecto}`)
 
   }
 

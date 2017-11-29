@@ -11,7 +11,7 @@
   {{proyect.imageUrl}}
   <img [src]="proyect.imageUrl" />
   <h3>See proyect</h3>
-  <button (click)="getTemplate()">Proyect1</button>
+  <button (click)="getTemplate(proyect.title)">details of {{proyect.title}}</button>
 </div>
 <h3>Push button add a new proyect</h3>
 <button [routerLink]="['../new-proyect']"> New Proyect </button>

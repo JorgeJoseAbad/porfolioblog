@@ -57,7 +57,14 @@ export class SessionsService {
         .catch(this.handleError);
     }
 
-    /*logout(){
-      return this.http.post()
-    }*/
+    logout(){
+      console.log("logout service");
+      return this.http.post(`${this.BASE_URL}/logout`,{},this.options )
+        .map(res => {
+                      res.json();
+                      console.log(res.json());
+                      this.user=null; //destroy this session user
+                    })
+        .catch(this.handleError);
+    }
 }

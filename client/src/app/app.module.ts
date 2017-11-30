@@ -7,8 +7,8 @@ import { Routes } from '@angular/router';
 import { FileUploadModule,FileDropDirective,FileSelectDirective } from "ng2-file-upload";
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-
 import { PortfolioService} from './services/portfolio.service';
+import { BlogService} from './services/blog.service';
 import { SessionsService} from './services/sessions.service';
 
 import { AppComponent } from './app.component';
@@ -19,8 +19,7 @@ import { BlogComponent} from './blog/blog.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { NewProyectComponent } from './new-proyect/new-proyect.component';
-
-
+import { NewPostComponent } from './new-post/new-post.component';
 
 
 export const routes: Routes = [
@@ -30,7 +29,8 @@ export const routes: Routes = [
     { path: 'introduction', component: IntroductionComponent},
     { path: 'signup',  component: SignupComponent},
     { path: 'login', component: LoginComponent},
-    { path: 'new-proyect', component: NewProyectComponent}
+    { path: 'new-proyect', component: NewProyectComponent},
+    { path: 'new-post', component: NewPostComponent}
 
   ]
 
@@ -44,6 +44,7 @@ export const routes: Routes = [
     SignupComponent,
     LoginComponent,
     NewProyectComponent,
+    NewPostComponent,
 
   ],
   imports: [
@@ -54,7 +55,7 @@ export const routes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [PortfolioService,SessionsService],
+  providers: [PortfolioService,BlogService,SessionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,3 +16,10 @@ a {
   text-align: justify;
   border: 2px solid red;
 }
+
+.proyectImage img{
+  width: 400px;
+  height: auto;
+  padding-top: 20px;
+  padding-left: 50px
+}

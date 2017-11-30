@@ -1,0 +1,20 @@
+form,label{
+  display: block;
+}
+
+fieldset{
+  width: 1000px;
+}
+
+.proyectform{
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.form-group{
+  width: 1000px;
+}
+
+input,textarea{
+  width: inherit;
+}

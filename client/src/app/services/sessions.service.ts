@@ -47,7 +47,7 @@ export class SessionsService {
         })
         .catch(this.handleError);
     }
-    
+
     login(username:string, password:string):Observable<User> {
       return this.http.post(`${this.BASE_URL}/login`, {username,password}, this.options)
         .map(res => {
@@ -56,4 +56,8 @@ export class SessionsService {
         })
         .catch(this.handleError);
     }
+
+    /*logout(){
+      return this.http.post()
+    }*/
 }

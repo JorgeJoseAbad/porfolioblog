@@ -24,7 +24,7 @@ export class BlogService {
   addPost(newPost){
     console.log("in addPost"+newPost);
     return this.http
-      .post(`${this.BASE_URL}/api/blog`,newPost)
+      .post(`${this.BASE_URL}/api/blog`,newPost,this.options)
       .map((res) => res.json());
   }
 

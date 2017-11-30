@@ -10,23 +10,23 @@ console.log("in blog-controller");
 
 router.get('/', (req, res, next) => {
   console.log("in router-get blog controller");
-  Proyect
+  Post
     .find({})
     .populate('_author')
-    .exec( (err, proyects) => {
+    .exec( (err, posts) => {
       if (err) { return res.status(500).json(err); }
 
-      return res.status(200).json(proyects);
+      return res.status(200).json(posts);
     });
 });
 
 
-router.post('/', (req, res, next) => {
+router.post('/', loggedIn, (req, res, next) => {
   console.log("router post / Blog");
   console.log(req.user);
   console.log(req.body);
   const newPost = new Post({
-  
+    _author: req.user._id,
     title: req.body.title,
     content: req.body.content,
     date: req.body.date

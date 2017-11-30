@@ -11,10 +11,11 @@
 
 <div class="proyectlist" *ngFor="let proyect of proyects">
   <h4>{{proyect.title}}&nbsp;</h4>
+  <b>A proyect by:</b> {{proyect._author.username}}
+  <br>
   {{proyect.content}}
-  {{proyect._author.username}}
-  {{proyect.imageUrl}}
+  <br>
   <img [src]="proyect.imageUrl" />
-  <h5>See proyect</h5>
-  <button (click)="getTemplate(proyect.title)">details of {{proyect.title}}</button>
+  <h5>See {{proyect.title}} page on a new tab</h5>
+  <button (click)="getTemplate(proyect.title)">Proyect Page</button>
 </div>

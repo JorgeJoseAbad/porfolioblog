@@ -14,7 +14,7 @@ export class NewProyectComponent implements OnInit {
 
   uploader: FileUploader = new FileUploader({
     url: `http://localhost:3000/api/proyects/`
-    
+
   });
 
   newProyecto = {
@@ -48,6 +48,7 @@ export class NewProyectComponent implements OnInit {
       };
       this.uploader.uploadAll();
       console.log(this.newProyecto);
+      this.router.navigate(['portfolio'])
 
     }
 

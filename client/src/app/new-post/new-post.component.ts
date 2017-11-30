@@ -28,9 +28,13 @@ export class NewPostComponent implements OnInit {
   submit(){
     console.log(this.newPost);
     this.blog.addPost(this.newPost)
-    .subscribe((post)=>{
-      console.log(post)
-    })
+    .subscribe(
+      (post)=>{
+        console.log(post)
+        this.router.navigate(['blog'])
+      },
+      (err)=>this.error=err
+    );
   }
 
 }

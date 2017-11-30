@@ -41,9 +41,13 @@ app.use(cors(corsOptions));
 
 app.use(session({
   secret: "Portfolio-blog app",
-  resave: true,
+  cookie: { maxAge: 60000 },
+  resave: false,
   saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
 }));
 
 configure(passport);

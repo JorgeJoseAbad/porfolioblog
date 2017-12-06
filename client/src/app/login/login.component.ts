@@ -16,13 +16,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   login() {
       console.log(this.username);
       this.session.login(this.username,this.password)
         .subscribe(
         (user) => {
-          console.log(user)
+          console.log(user.username)
           this.router.navigate(['/'])
         },
         (err) => this.error = err

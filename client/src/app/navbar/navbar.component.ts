@@ -1,22 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck} from '@angular/core';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SessionsService} from '../services/sessions.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css'],
+  })
 
-})
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, DoCheck{
 public isCollapsed = false;
 
-user:any;
-error:any;
+  error:any;
+  user:any;
 
-  constructor(private session:SessionsService) { }
+
+  constructor(private session:SessionsService) {
+
+  }
 
   ngOnInit() {
+  }
+
+  ngDoCheck(){
+    this.user=this.session.user;
+    console.log(this.user);
   }
 
   logout(){

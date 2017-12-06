@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import {PortfolioService} from '../services/portfolio.service';
+import {SessionsService} from '../services/sessions.service';
 
 import { Response } from '@angular/http';
 
@@ -16,13 +17,15 @@ export class PortfolioComponent implements OnInit {
   proyects:Observable<Array<Object>>;
   pageURL:any;
   customHTML:any;
-
+  user:any;
 
   constructor(
     private activatedroute: ActivatedRoute,
-    private portfolioservice: PortfolioService) { }
+    private portfolioservice: PortfolioService,
+    private session:SessionsService) { }
 
   ngOnInit() {
+    this.user=this.session.user; //no used 
   }
 
   getListProyects(){

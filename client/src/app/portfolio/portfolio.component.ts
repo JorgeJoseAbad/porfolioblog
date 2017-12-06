@@ -25,7 +25,7 @@ export class PortfolioComponent implements OnInit {
     private session:SessionsService) { }
 
   ngOnInit() {
-    this.user=this.session.user; //no used 
+    this.user=this.session.user; //no used
   }
 
   getListProyects(){
@@ -46,7 +46,6 @@ export class PortfolioComponent implements OnInit {
           page,
           '_blank' // <- This is what makes it open in a new window.
         );
-
     };
 
 //experimental function to bring a html page defined in back-end to front-end

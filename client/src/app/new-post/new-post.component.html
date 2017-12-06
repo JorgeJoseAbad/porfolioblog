@@ -5,6 +5,10 @@
 <form class="proyectform">
     <fieldset>
 
+        <div *ngIf="session.user">
+          <b>Please, {{session.user.username}}, write a new post:</b>
+        </div>
+
         <div class="form-group">
           <label> tittle </label>
           <input type="text" [(ngModel)]="newPost.title" name="title"/>

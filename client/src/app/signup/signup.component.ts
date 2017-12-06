@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 error: String;
+password:any;
+username: any;
+email:any;
+
   constructor(private session: SessionsService, private router: Router) { }
 
   ngOnInit() {

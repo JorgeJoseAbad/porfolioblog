@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogService} from '../services/blog.service';
+import { SessionsService} from '../services/sessions.service';
 
 @Component({
   selector: 'app-new-post',
@@ -19,7 +20,8 @@ export class NewPostComponent implements OnInit {
 
   constructor(
     private router:Router,
-    private blog:BlogService
+    private blog:BlogService,
+    private session:SessionsService
     ) { }
 
   ngOnInit() {

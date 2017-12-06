@@ -1,5 +1,9 @@
 <h1>
-  Blog Porfolio Main page!
+  <div *ngIf="session.user">
+    <b>{{session.user.username}}'s </b>
+  </div>
+  Blog Porfolio Main page
+
 </h1>
 
 <pre>This is a experimental app to make a blog and porfolio with angular, express, and MongoDB</pre>

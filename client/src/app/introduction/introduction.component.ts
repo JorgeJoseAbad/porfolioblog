@@ -8,7 +8,7 @@ import { SessionsService } from '../services/sessions.service';
 })
 export class IntroductionComponent implements OnInit {
 
-  constructor(private session:SessionsService) { }
+  constructor(public session:SessionsService) { }
 
   ngOnInit() {
   }

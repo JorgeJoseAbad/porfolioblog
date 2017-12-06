@@ -8,18 +8,21 @@ import { SessionsService} from '../services/sessions.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  error: string;
-  username: string;
-  password: string;
+  error: any;
+  username: any;
+  password: any;
 
-  constructor(private session: SessionsService, private router: Router) { }
+  constructor(
+    private session: SessionsService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
-  login() {
-      console.log(this.username);
-      this.session.login(this.username,this.password)
+  login(myForm) {
+    console.log(myForm);
+    console.log(myForm.value);
+      this.session.login(myForm.value.username,myForm.value.password)
         .subscribe(
         (user) => {
           console.log(user.username)

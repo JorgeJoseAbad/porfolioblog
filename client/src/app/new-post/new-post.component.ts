@@ -21,7 +21,7 @@ export class NewPostComponent implements OnInit {
   constructor(
     private router:Router,
     private blog:BlogService,
-    private session:SessionsService
+    public session:SessionsService
     ) { }
 
   ngOnInit() {

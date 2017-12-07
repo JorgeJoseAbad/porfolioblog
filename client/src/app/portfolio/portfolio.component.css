@@ -5,3 +5,8 @@
   border-top: 2px solid blue;
 
 }
+
+.proyectlist>img{
+  width: 600px;
+  height: auto;
+}

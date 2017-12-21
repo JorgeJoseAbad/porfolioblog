@@ -25,7 +25,6 @@ public isCollapsed = false;
 
   ngDoCheck(){
     this.user=this.session.user;
-    console.log(this.user);
   }
 
   logout(){

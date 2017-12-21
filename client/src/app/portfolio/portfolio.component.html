@@ -5,9 +5,10 @@
 <h3>Push button to see a list of proyects</h3>
 <button (click)="getListProyects()">GetPorfolio</button>
 
-<h3>Push button add a new proyect</h3>
-<button [routerLink]="['../new-proyect']"> New Proyect </button>
-
+<div *ngIf="session.user">
+  <h3>Push button add a new proyect</h3>
+  <button [routerLink]="['../new-proyect']"> New Proyect </button>
+</div>
 
 <div class="proyectlist" *ngFor="let proyect of proyects">
   <h4>{{proyect.title}}&nbsp;</h4>

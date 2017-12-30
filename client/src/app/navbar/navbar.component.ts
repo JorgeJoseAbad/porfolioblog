@@ -3,6 +3,8 @@ import { Component, OnInit, DoCheck} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SessionsService} from '../services/sessions.service';
 
+import {environment} from '../../environments/environment';
+
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
@@ -14,6 +16,7 @@ public isCollapsed = false;
 
   error:any;
   user:any;
+  BASE_URL:string=`${environment.baseURL}`;
 
 
   constructor(private session:SessionsService) {

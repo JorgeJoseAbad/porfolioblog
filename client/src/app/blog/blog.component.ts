@@ -18,7 +18,7 @@ export class BlogComponent implements OnInit {
   constructor(
             private activatedroute: ActivatedRoute,
             private blogservice: BlogService,
-            private session:SessionsService) { }
+            public session:SessionsService) { }
 
   ngOnInit() {
     this.user=this.session.user; //no used

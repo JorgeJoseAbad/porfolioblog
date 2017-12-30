@@ -14,7 +14,12 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, "Password is required"]
-  }
+  }, //imageUrl image avatar
+  imageUrl   : {
+    type: String,
+    required: true,
+    default: "/images/user_color.png" //user default image
+  },
 });
 
 UserSchema.methods.generateHash = function(password) {

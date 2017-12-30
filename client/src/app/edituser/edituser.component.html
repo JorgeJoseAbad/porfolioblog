@@ -1,0 +1,19 @@
+<h1>
+  Update avatar of {{user.username}}
+</h1>
+
+<form class="updatedata">
+      <!-- code to refer user by id in form-->
+      <p>
+        <input type="hidden" value={{user._id}} name="_id"/>
+      </p>
+      <!-- code to upload image avatar-->
+        <div class="form-group">
+          <label> Select new avatar image to upload:</label><br>
+          <input #fileUpload type="file" name="file" ng2FileSelect [uploader]="uploader" />
+        </div>
+
+      <button type="submit" (click)="submit()"> update avatar </button>
+</form>
+
+<p> {{ feedback }} </p>

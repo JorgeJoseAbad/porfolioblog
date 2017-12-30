@@ -17,6 +17,7 @@ export class SessionsService {
   user:User; // The current logged in user
   startLoginCompleted:boolean = false;
   BASE_URL:string=`${environment.baseURL}/api`;
+  USERS_URL:string=`${environment.baseURL}`;
   options:Object = {withCredentials:true};
 
 
@@ -49,6 +50,7 @@ export class SessionsService {
     }
 
     login(username:string, password:string):Observable<User> {
+      console.log(`${this.BASE_URL}/login`);
       return this.http.post(`${this.BASE_URL}/login`, {username,password}, this.options)
         .map(res => {
           this.user = res.json();

@@ -22,7 +22,7 @@ export class PortfolioComponent implements OnInit {
   constructor(
     private activatedroute: ActivatedRoute,
     private portfolioservice: PortfolioService,
-    private session:SessionsService) { }
+    public session:SessionsService) { }
 
   ngOnInit() {
     this.user=this.session.user; //no used

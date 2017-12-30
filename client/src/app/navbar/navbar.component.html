@@ -44,10 +44,16 @@
           </div>
         </li>
 
-                <a class="nav-link" *ngIf="this.user">
+                <a class="nav-link" *ngIf="this.user" [routerLink]="['edituser']">
                   Hello, {{this.user.username}}
                 </a>
-                <a class="nav-link" *ngIf="!this.user">No user logged</a>
+
+                <a *ngIf="this.user" class="nav-image-profile">
+                    <img [src]="this.user.imageUrl" />
+                </a>
+
+
+              <a class="nav-link" *ngIf="!this.user">No user logged</a>
 
         <!--<li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>

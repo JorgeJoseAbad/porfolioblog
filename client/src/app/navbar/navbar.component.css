@@ -1,0 +1,17 @@
+.nav-image-profile {
+  width: 30px;
+  height: 30px;
+  margin: 10px 0 10px 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.nav-image-profile > img {
+  width: auto;
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+}

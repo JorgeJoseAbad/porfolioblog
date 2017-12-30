@@ -20,6 +20,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { NewProyectComponent } from './new-proyect/new-proyect.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 
 export const routes: Routes = [
@@ -30,7 +31,8 @@ export const routes: Routes = [
     { path: 'signup',  component: SignupComponent},
     { path: 'login', component: LoginComponent},
     { path: 'new-proyect', component: NewProyectComponent},
-    { path: 'new-post', component: NewPostComponent}
+    { path: 'new-post', component: NewPostComponent},
+    { path: 'edituser', component: EdituserComponent}
 
   ]
 
@@ -45,6 +47,7 @@ export const routes: Routes = [
     LoginComponent,
     NewProyectComponent,
     NewPostComponent,
+    EdituserComponent,
 
   ],
   imports: [

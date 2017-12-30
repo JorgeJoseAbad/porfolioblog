@@ -74,8 +74,10 @@ app.use(layouts);
 app.set('layout', 'layouts/main-layout');
 app.set('views', __dirname + '/views');
 
-app.use('/', index);
 app.use('/users', users);
+app.use('/', index);
+
+
 
 //added to start from server
 app.use(function(req, res) {

@@ -10,6 +10,7 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PortfolioService} from './services/portfolio.service';
 import { BlogService} from './services/blog.service';
 import { SessionsService} from './services/sessions.service';
+import { MyBiographyService} from './services/my-biography.service';
 
 import { AppComponent } from './app.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
@@ -61,7 +62,7 @@ export const routes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [PortfolioService,BlogService,SessionsService],
+  providers: [PortfolioService,BlogService,SessionsService,MyBiographyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

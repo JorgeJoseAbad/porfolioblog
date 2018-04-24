@@ -23,6 +23,7 @@ export class SessionsService {
 
   constructor(private http: Http) {
     this.isLoggedIn().subscribe( (user:User) =>{
+      console.log("this is: ",this);
         console.log(`Welcome again user ${user.username}`)
         this.user = user;
         this.startLoginCompleted = true;
@@ -37,10 +38,12 @@ export class SessionsService {
 
     handleError(e) {
       console.error("Error en la llamada a la API");
+      console.log(e.json().message);
       return Observable.throw(e.json().message);
     }
 
     isLoggedIn():Observable<User>{
+      console.log("estamos en SessionsService isLoggedIn");
       return this.http.post(`${this.BASE_URL}/loggedin`, this.options)
         .map(res => {
           this.user = res.json();

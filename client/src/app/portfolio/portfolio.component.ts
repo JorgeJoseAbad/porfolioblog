@@ -53,7 +53,7 @@ export class PortfolioComponent implements OnInit {
       this.portfolioservice.getTemplate(proyect)
       .subscribe((response)=>{
         console.log(response); //object Response with headers, ok:true, status:200, url.., _body..
-        console.log(response);
+        console.log(response.url);
         console.log(response.text()); //HTML document, text. <!DOCTYPE html> <html>.....</html>
         this.pageURL=`${response.url}`;
         console.log(this.pageURL); //http://localhost:3000/api/proyects/proyect

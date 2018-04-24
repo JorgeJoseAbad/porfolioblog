@@ -21,12 +21,14 @@ import { LoginComponent } from './login/login.component';
 import { NewProyectComponent } from './new-proyect/new-proyect.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { MyBiographyComponent } from './my-biography/my-biography.component';
 
 
 export const routes: Routes = [
     { path: '', component: IntroductionComponent },
     { path: 'portfolio', component: PortfolioComponent },
     { path: 'blog', component: BlogComponent},
+    { path: 'my-biography', component: MyBiographyComponent},
     { path: 'introduction', component: IntroductionComponent},
     { path: 'signup',  component: SignupComponent},
     { path: 'login', component: LoginComponent},
@@ -48,6 +50,7 @@ export const routes: Routes = [
     NewProyectComponent,
     NewPostComponent,
     EdituserComponent,
+    MyBiographyComponent,
 
   ],
   imports: [

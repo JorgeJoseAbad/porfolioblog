@@ -33,7 +33,7 @@ public isCollapsed = false;
   logout(){
     this.session.logout()
        .subscribe(
-         () => this.successCb(null),
+         () => {this.successCb(null);},
          (err) => this.errorCb(err)
        )
        console.log("in logout login component ts");

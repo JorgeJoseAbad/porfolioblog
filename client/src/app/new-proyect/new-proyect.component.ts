@@ -53,15 +53,3 @@ export class NewProyectComponent implements OnInit {
     }
 
 }
-
-/*console.log("segunda parte?");
-this.portfolioservice.addNew(this.newProyecto)
-  .subscribe(
-    (thread) => {
-      console.log(thread);
-      console.log(thread._id);
-      this.router.navigate([''])
-    },
-    (err) => this.error = err
-  );
-*/

@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css');
+
 body{
   margin-left: 20px;
   margin-right: 20px;
   background-color: #dcc8c8;
+  background-image: url(http://localhost:3000/images/galera.jpg);
+  background-size: cover;
 }

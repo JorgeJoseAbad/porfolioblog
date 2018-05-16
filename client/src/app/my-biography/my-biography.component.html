@@ -1,6 +1,7 @@
-<p>
-  my-biography works!
-</p>
-<div *ngIf="session.user">
-  <b>The Biographty of: {{session.user.username}}</b>
+
+<div id='ifuserexist' *ngIf="session.user">
+  <br>
+  <b id="optionbio">See the Biographty of: {{session.user.username}} in another tab</b>
+  <button (click)="rendermyPage(this.responseUrl)">Go to bio</button>
+
 </div>

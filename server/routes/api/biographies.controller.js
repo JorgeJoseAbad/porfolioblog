@@ -5,7 +5,7 @@ console.log("in biographies contoller");
 
 //experimental route to send HTML from back to front end.
 router.get('/:name',(req,res,next)=>{
-  console.log("en biograpies controller"); //OK
+  console.log("en biographies controller"); //OK
   console.log(req.params.name);
   var name=req.params.name;
   var rute=`biographies/${name}.ejs`;

@@ -29,6 +29,7 @@ export class MyBiographyComponent implements OnInit {
     this.biography.getBiography(this.userName)
      .subscribe((response)=>{
        console.log(response.text())
+       console.log(response.url);
 
        this.responseUrl=response.url;
 

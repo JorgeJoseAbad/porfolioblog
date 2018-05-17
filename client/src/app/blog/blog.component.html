@@ -16,6 +16,7 @@
     Date: {{post.date}}
     <br>
     Autor: {{post._author.username}}
+    <button (click)="rendermyPage(post._author.username)">Go to author bio</button>
     <br>
     {{post.content}}
 

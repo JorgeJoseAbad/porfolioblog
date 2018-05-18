@@ -48,7 +48,7 @@ export class MyBiographyComponent implements OnInit {
   }
 
   // experimental funcion to render the url of a express html from getTemplate()
-      rendermyPage(responseUrl){
+      renderMyBio(responseUrl){
         console.log("rendermyPage");
         console.log(responseUrl);
         //window.location.href=responseCode; //this load the url

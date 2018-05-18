@@ -5,9 +5,16 @@
 
 
 body{
+  padding-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
   background-color: #dcc8c8;
   background-image: url(http://localhost:3000/images/galera.jpg);
   background-size: cover;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 30px;
+  }
 }

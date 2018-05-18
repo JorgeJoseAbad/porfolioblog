@@ -36,7 +36,7 @@ export class BlogComponent implements OnInit {
       })
     }
 
-    rendermyPage(authorName){
+    rendermyAuthorBio(authorName){
       console.log("rendermyPage");
       let responseUrl=this.BASE_BIO_URL+authorName;
       //window.location.href=responseCode; //this load the url

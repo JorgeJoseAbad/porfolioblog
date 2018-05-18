@@ -3,10 +3,10 @@
 </h1>
 
 <h3>Push button add read blog</h3>
-<button (click)="getBlog()">GetBlog</button>
+<button type="button" class="btn btn-outline-primary btn-sm" (click)="getBlog()">GetBlog</button>
 <div *ngIf="session.user">
   <h3>Push button add a new post</h3>
-  <button [routerLink]="['../new-post']"> New post </button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" [routerLink]="['../new-post']"> New post </button>
 </div>
 
 
@@ -16,7 +16,7 @@
     Date: {{post.date}}
     <br>
     Autor: {{post._author.username}}
-    <button (click)="rendermyPage(post._author.username)">Go to author bio</button>
+    <button type="button" class="btn btn-link" (click)="rendermyAuthorBio(post._author.username)">Go to author bio</button>
     <br>
     {{post.content}}
 

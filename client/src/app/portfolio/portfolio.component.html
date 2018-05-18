@@ -3,22 +3,22 @@
 </h1>
 
 <h3>Push button to see a list of proyects</h3>
-<button (click)="getListProyects()">GetPorfolio</button>
+<button type="button" class="btn btn-outline-primary btn-sm" (click)="getListProyects()">GetPorfolio</button>
 
 <div *ngIf="session.user">
   <h3>Push button add a new proyect</h3>
-  <button [routerLink]="['../new-proyect']"> New Proyect </button>
+  <button  type="button" class="btn btn-outline-secondary btn-sm" [routerLink]="['../new-proyect']"> New Proyect </button>
 </div>
 
 <div class="proyectlist" *ngFor="let proyect of proyects">
   <h4>{{proyect.title}}&nbsp;</h4>
   <b>A proyect by:</b> {{proyect._author.username}}
   <br>
-  <button (click)="renderAuthorBio(proyect._author.username)">Go to author bio</button>
+  <button  type="button" class="btn btn-light btn-sm" (click)="renderAuthorBio(proyect._author.username)">Go to author bio</button>
   <br>
   {{proyect.content}}
   <br>
   <img [src]="proyect.imageUrl" />
   <h5>See {{proyect.title}} page on a new tab</h5>
-  <button (click)="getTemplate(proyect.title)">Proyect Page</button>
+  <button  type="button" class="btn btn-light btn-sm" (click)="getTemplate(proyect.title)">Proyect Page</button>
 </div>

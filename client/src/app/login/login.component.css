@@ -2,3 +2,22 @@
   width: 600px;
   margin: 0 auto;
 }
+
+.ng-touched {
+  border-color: blue;
+  border-width: 5px;
+}
+
+.ng-touched.ng-invalid {
+  border-color: red;
+  border-width: 5px;
+}
+
+.ng-touched.ng-valid {
+  border-color: green;
+}
+
+.error{
+  color: red;
+  font-weight: bolder;
+}

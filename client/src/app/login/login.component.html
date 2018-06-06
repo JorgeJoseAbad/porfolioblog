@@ -1,16 +1,28 @@
 
 <h1> Login</h1>
 
-<form class="myform" (ngSubmit)="login(myForm)" #myForm="ngForm">
+<form class="myform" (ngSubmit)="login(myForm)" #myForm="ngForm" novalidate>
 
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" autocomplete="username" class="form-control" id="username" placeholder="Username" name="username" [(ngModel)]="username" required/>
+    <input type="text" #myUsername="ngModel" autocomplete="username" class="form-control" id="username" placeholder="Username" name="username" [(ngModel)]="username" minlength="6" required/>
+  </div>
+
+  <div *ngIf="myUsername.errors && (myUsername.dirty || myUsername.touched)">
+    <p class="error" [hidden]="!myUsername.errors.minlength">
+      Username must be at least 6 characters long.
+    </p>
   </div>
 
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" autocomplete="current-password" class="form-control" id="password" placeholder="Password" name="password" [(ngModel)]="password"  required/>
+    <input type="password" #myPassword="ngModel" autocomplete="current-password" class="form-control" id="password" placeholder="Password" name="password" [(ngModel)]="password"  required/>
+  </div>
+
+  <div *ngIf="myPassword.errors && (myPassword.dirty || myPassword.touched)">
+    <p class="error" [hidden]="!myPassword.errors.required">
+      Password is required
+    </p>
   </div>
 
   <button type="submit" class="btn btn-primary">Log in</button>

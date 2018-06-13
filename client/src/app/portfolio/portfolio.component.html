@@ -13,11 +13,11 @@
  <div class="proyectlist" *ngFor="let proyect of proyects">
   <div class="row">
 
-    <div class="col-md-7">
-      <img img class="img-fluid rounded mb-3 mb-md-0" [src]="proyect.imageUrl" />
+    <div class="col-md-5">
+      <img class="img-fluid rounded mb-3 mb-md-0" [src]="proyect.imageUrl" />
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-7">
       <h4>{{proyect.title}}&nbsp;</h4>
        <b>A proyect by:</b> {{proyect._author.username}}
        <br>
@@ -26,9 +26,13 @@
        {{proyect.content}}
        <hr>
        <h5>See {{proyect.title}} page on a new tab</h5>
-       <button  type="button" class="btn btn-light btn-sm" (click)="getTemplate(proyect.title)">Proyect Page</button>
-    </div>
+       <button  type="button" class="btn btn-light btn-sm" (click)="getTemplate(proyect._id)">Proyect Page</button>
 
+       <div *ngIf="proyect._author.username==username">
+         <button  type="button" class="btn btn-light btn-sm" (click)="deleteproyect(proyect._id)">Delete proyect</button>
+         <hr>
+       </div>
+   </div>
   </div>
  </div>
 
@@ -36,6 +40,7 @@
 
 
      <!-- Pagination -->
+<div>
      <ul class="pagination justify-content-center">
        <li class="page-item">
          <a class="page-link" href="#" aria-label="Previous">

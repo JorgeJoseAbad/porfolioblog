@@ -4,6 +4,7 @@ const Proyect =   require('../../models/proyect.model');
 //const Reply    = require('../../models/reply.model');
 const loggedIn =  require('../../utils/isAuthenticated');
 const upload =    require('../../config/multer');
+const fs = require('fs');
 
 console.log("in portfolio-controller");
 
@@ -40,71 +41,48 @@ router.post('/', loggedIn, upload.single('file'), (req, res, next) => {
   });
 });
 
-//experimental route to send HTML from back to front end.
-router.get('/proyect/:name',(req,res,next)=>{
+//Route to send HTML from back to front end to render proyect
+router.get('/:id',(req,res,next)=>{
   console.log("en proyecto1 otra vez"); //OK
-  console.log(req.params.name);
-  var name=req.params.name;
-  var rute='proyects/'+name+'.ejs';
-  console.log("rute is: "+rute);
-  res.render(rute); //Ok, send Response to front.
+  console.log(req.params.id);
+  let id=req.params.id;
+    Proyect
+      .findById(id,(err,proyect)=>{
+        if (err) { return res.status(500).json(err); }
+        console.log(proyect);
+        let title=proyect.title;
+        let proyectFile='proyects/'+title+'.ejs';
+        res.render(proyectFile);
+      });
+
 });
+
+
+router.delete('/:id',(req,res,next)=>{
+  console.log("en delete");
+  let id=req.params.id;
+  console.log(req.params.id);
+  Proyect
+  .findByIdAndRemove(id,(err,proyect)=>{ //quito AndRemove
+    if (err) {
+      console.log("error 500");
+      return res.status(500).json(err); }
+    else{
+    console.log("encontrado proyecto en BBDD: ",proyect);
+    let proyectfile='./views/proyects/'+proyect.title+'.ejs';
+    //routes/api/portfolio.controller.js
+    //views/proyects/April proyect.ejs
+    fs.unlink(proyectfile,function(err){
+        if(err) return console.log(err);
+        console.log('file deleted successfully');
+      });
+    return res.json({
+        message: 'proyect:  '+ `${proyectfile}`+ ' has been removed!'
+      });
+    }
+  });
+
+});
+
 
 module.exports = router;
-
-/*
-router.get('/:id', (req, res, next) => {
-  Thread
-    .findById(req.params.id)
-    .populate('_author replies._author')
-    .exec( (err, thread) => {
-      if (err)     { return res.status(500).json(err); }
-      if (!thread) { return res.status(404).json(err); }
-
-      return res.status(200).json(thread);
-    });
-});
-
-router.post('/', loggedIn, (req, res, next) => {
-  console.log("router post / threads");
-  console.log(req.user);
-  console.log(req.body);
-  const newThread = new Thread({
-    _author: req.user._id,
-    title: req.body.title,
-    content: req.body.content
-  });
-
-  newThread.save((err) => {
-    if (err)              { return res.status(500).json(err); }
-    if (newThread.errors) { return res.status(400).json(newThread); }
-
-    return res.status(200).json(newThread);
-  });
-});
-
-router.post('/:id/replies', loggedIn, (req, res, next) => {
-  const newReply = new Reply({
-    _author: req.user._id,
-    title: req.body.title,
-    content: req.body.content
-  });
-
-  Thread
-    .findById(req.params.id)
-    .populate('_author replies._author')
-    .exec((err, thread) => {
-      if (err)     { return res.status(500).json(err); }
-      if (!thread) { return res.status(404).json(err); }
-
-      thread.replies.push(newReply);
-
-      thread.save( (err) => {
-        if (err)          { return res.status(500).json(err); }
-        if (thread.errors){ return res.status(400).json(thread); }
-
-        return res.status(200).json(thread);
-      });
-  });
-});
-*/

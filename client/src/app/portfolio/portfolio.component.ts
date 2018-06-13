@@ -17,8 +17,7 @@ export class PortfolioComponent implements OnInit {
 
   proyects:Observable<Array<Object>>;
   pageURL:any;
-  customHTML:any;
-  user:any;
+  username:String='Anonimous';
   BASE_BIO_URL: string=`http://localhost:3000/api/biographies/`;
 
   constructor(
@@ -28,7 +27,9 @@ export class PortfolioComponent implements OnInit {
     public biography:MyBiographyService) { }
 
   ngOnInit() {
-    this.user=this.session.user; //no used
+
+    this.username=this.session.user.username;
+
   }
 
   getListProyects(){
@@ -52,8 +53,8 @@ export class PortfolioComponent implements OnInit {
     };
 
 //experimental function to bring a html page defined in back-end to front-end
-  getTemplate(proyect){
-      this.portfolioservice.getTemplate(proyect)
+  getTemplate(proyectID){
+      this.portfolioservice.getTemplate(proyectID)
       .subscribe((response)=>{
         console.log(response); //object Response with headers, ok:true, status:200, url.., _body..
         console.log(response.url);
@@ -74,6 +75,14 @@ export class PortfolioComponent implements OnInit {
           responseUrl,
          '_blank' // <- This is what makes it open in a new window.
         );
+    };
+
+    deleteproyect(id){
+      console.log("voy a eliminar: ",id);
+      this.portfolioservice.deleteproyect(id)
+      .subscribe((response)=>{
+        console.log(response);
+      });
     };
 
 

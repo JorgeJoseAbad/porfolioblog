@@ -4,11 +4,14 @@
   margin: 0 auto;
   margin-top: 20px;
   padding: 20px 10px;
-  border-top: 2px solid blue;
+  border-top: 3px solid blue;
+  border-radius: 10px;
 
 }
 
-.proyectlist>img{
-  width: 600px;
+.proyectlist img{
+  width: 200px;
   height: auto;
+  border: 2px solid red;
+  border-radius: 10px;
 }

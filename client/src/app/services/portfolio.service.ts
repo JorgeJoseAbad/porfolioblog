@@ -8,7 +8,7 @@ import { Response } from '@angular/http';
 
 @Injectable()
 export class PortfolioService {
-  BASE_URL: string = `${environment.baseURL}`;
+  BASE_URL: String = `${environment.baseURL}`;
   options: Object = {withCredentials:true};
 
   constructor(private http: Http) { }
@@ -23,15 +23,21 @@ export class PortfolioService {
   addNew(proyect) {
       console.log(proyect)
       return this.http
-        .post(`${this.BASE_URL}/api/proyects`, proyect, this.options)
+        .post(`${this.BASE_URL}/api/proyects`,proyect,this.options)
         .map((res) => res.json());
     }
 
-  getTemplate(proyecto){
-    console.log(proyecto); //
+  getTemplate(proyectoID){
+    console.log(proyectoID);
     return this.http
-    .get(`${this.BASE_URL}/api/proyects/proyect/${proyecto}`)
+    .get(`${this.BASE_URL}/api/proyects/${proyectoID}`);
 
+  }
+
+  deleteproyect(proyectoID){
+    console.log("en service: ",proyectoID);
+    console.log(`${this.BASE_URL}/api/proyects/${proyectoID}`);
+    return this.http.delete(`${this.BASE_URL}/api/proyects/${proyectoID}`,this.options);
   }
 
 

@@ -26,6 +26,7 @@ router.post('/', loggedIn, upload.single('file'), (req, res, next) => {
   console.log("router post / proyects");
   console.log(req.user);
   console.log(req.body);
+
   const newProyect = new Proyect({
     _author: req.user._id,
     title: req.body.title,
@@ -33,11 +34,19 @@ router.post('/', loggedIn, upload.single('file'), (req, res, next) => {
     content: req.body.content,
     date: req.body.date
   });
-  newProyect.save((err) => {
-    if (err)              { return res.status(500).json(err); }
-    if (newProyect.errors) { return res.status(400).json(newProyect); }
+  debugger;
+  let proyectfile='./views/proyects/'+req.body.title+'.ejs';
 
-    return res.status(200).json(newProyect);
+  fs.open(proyectfile, 'w', function (err, file) {
+    if (err) throw err;
+    else {
+      newProyect.save((err) => {
+        if (err)              { return res.status(500).json(err); }
+        if (newProyect.errors) { return res.status(400).json(newProyect); }
+
+        return res.status(200).json(newProyect);
+      });
+    }
   });
 });
 
@@ -57,7 +66,7 @@ router.get('/:id',(req,res,next)=>{
 
 });
 
-
+/*
 router.delete('/:id',(req,res,next)=>{
   console.log("en delete");
   let id=req.params.id;
@@ -83,6 +92,48 @@ router.delete('/:id',(req,res,next)=>{
   });
 
 });
+*/
+
+//expermimantal route to delete with double check file and BBDD
+router.delete('/:id',(req,res,next)=>{
+  console.log("en delete");
+  let id=req.params.id;
+  console.log(req.params.id);
+  Proyect
+  .findById(id,(err,proyect)=>{
+    if (err) {
+      console.log("error 500");
+      return res.status(500).json(err);
+    }
+    if (proyect===null){
+      return res.json({
+         message: 'Proyect not in BBDD'
+       });
+    }
+    else{
+      console.log("encontrado proyecto en BBDD: ",proyect);
+      let proyectfile='./views/proyects/'+proyect.title+'.ejs';
+      if (proyectfile){
+        fs.unlink(proyectfile,function(err){
+                if(err) return console.log(err);
+                if (!err){
+                  console.log('file deleted successfully');
+                  Proyect
+                   .findByIdAndRemove(id,(err)=>{
+                       if (err){return res.status(500).json(err);}
+                       return res.json({
+                          message: 'proyect:  '+ `${proyectfile}`+ ' has been removed!'
+                        });
+                    });
+                 }
+          });
+
+      }
+      else return res.status(500).json('fichero no encontrado');
+    }
+  });
+});
+
 
 
 module.exports = router;

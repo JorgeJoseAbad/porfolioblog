@@ -111,13 +111,24 @@ router.delete('/:id',(req,res,next)=>{
        });
     }
     else{
+
+      debugger;
       console.log("encontrado proyecto en BBDD: ",proyect);
+      let proyectImage='public/'+proyect.imageUrl;
       let proyectfile='./views/proyects/'+proyect.title+'.ejs';
       if (proyectfile){
+        /*delete file proyect and if no error remove BBDD*/
         fs.unlink(proyectfile,function(err){
                 if(err) return console.log(err);
                 if (!err){
                   console.log('file deleted successfully');
+                  /*delete proyect image-icon*/
+                  fs.unlink(proyectImage,function(err){
+                    if(err) return console.log(err);
+                    if (!err) {
+                      console.log(proyectImage+" DELETED");
+                    }
+                  });
                   Proyect
                    .findByIdAndRemove(id,(err)=>{
                        if (err){return res.status(500).json(err);}
@@ -125,8 +136,9 @@ router.delete('/:id',(req,res,next)=>{
                           message: 'proyect:  '+ `${proyectfile}`+ ' has been removed!'
                         });
                     });
-                 }
+                 } //if (!err)
           });
+
 
       }
       else return res.status(500).json('fichero no encontrado');
